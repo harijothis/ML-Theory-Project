@@ -8,7 +8,7 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
-
+from collections import defaultdict
 
 e_mails, labels = [], []
 
@@ -44,7 +44,6 @@ def clean_text(docs):
     return cleaned_docs
 
 def get_label_index(labels):
-    from collections import defaultdict
     label_index = defaultdict(list)
     for index, label in enumerate(labels):
         label_index[label].append(index)
