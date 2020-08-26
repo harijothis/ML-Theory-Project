@@ -9,6 +9,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from collections import defaultdict
+from nltk.corpus import names
+from nltk.stem import WordNetLemmatizer
 
 e_mails, labels = [], []
 
@@ -27,8 +29,7 @@ for filename in glob.glob(os.path.join(file_path, '*.txt')):
         labels.append(0)
 
 
-from nltk.corpus import names
-from nltk.stem import WordNetLemmatizer
+
 
 def letters_only(wrds):
         return wrds.isalpha()
